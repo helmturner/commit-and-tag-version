@@ -1,6 +1,6 @@
+
 #!/usr/bin/env node
 
-/* @ts-nocheck */
 /* istanbul ignore if */
 if (process.version.match(/v(\d+)\./)[1] < 6) {
   console.error(
@@ -8,8 +8,10 @@ if (process.version.match(/v(\d+)\./)[1] < 6) {
   )
 } else {
   const standardVersion = require('../index')
-  const cmdParser = require('../command')
-  standardVersion(cmdParser.argv).catch(() => {
+  const cmdParser = await import('../command-playground')
+  standardVersion(cmdParser.default.argv).catch(() => {
     process.exit(1)
   })
 }
+
+export default undefined

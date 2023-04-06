@@ -37,7 +37,8 @@
       "baseUrl": ".",
       "outDir": "./dist",
       "types": [
-        "node"
+        "node",
+        "yargs"
       ]
     },
     "include": [
